@@ -81,7 +81,11 @@ else:
         #det = -((g*e*c) + (h*f*a) + (i*d*b)) + ((a*e*i) + (b*f*g) + (c*d*h))
         
     def submatriz(matriz, linha_remover, coluna_remover):
-        pass
+        while n in linha and matriz != 3:
+            for linha in matriz:
+                del linha[0]
+            del matriz[0]
+        return matriz
     
     def laplace(matriz):
         # Determinante por Laplace sempre na 1ª linha.
@@ -104,11 +108,15 @@ else:
                 for coluna in range(n):
                     sub = submatriz(matriz, linha, coluna)
                     det += ((-1)**(0+coluna)) * n * laplace(sub)
+
+
+        
         
             
 
 
     #base
-    det = laplace(matriz)
-    print(f"ordem={n}")
-    print(f"det={det}")
+    print(submatriz)
+    #det = laplace(matriz)
+    #print(f"ordem={n}")
+    #print(f"det={det}")
